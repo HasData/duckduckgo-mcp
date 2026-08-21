@@ -33,7 +33,7 @@ An MCP client that speaks streamable HTTP with custom headers. A HasData API key
 
 ## Quick start
 
-The server URL is the same for every client. Tested against the configs below with Claude Code, Claude Desktop, Cursor, Windsurf and Cline.
+The server URL is the same for every client. We run it hands-on in Claude Code and Claude Desktop. The other blocks follow each client's own documented format for a remote server.
 
 | Field | Value |
 | :--- | :--- |
@@ -58,19 +58,26 @@ claude mcp add --transport http duckduckgo "https://mcp.hasdata.com/api/mcp?apis
 
 Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/api/mcp?apis=duckduckgo` and sign in.
 
-For the config-file route, add this to `claude_desktop_config.json`:
+For the config-file route, Claude Desktop loads only local (stdio) servers, so a remote server is reached through the `mcp-remote` bridge, which needs Node. Add this to `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
     "duckduckgo": {
-      "type": "http",
-      "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
-      "headers": { "x-api-key": "your_key_here" }
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
+        "--header",
+        "x-api-key:your_key_here"
+      ]
     }
   }
 }
 ```
+
+The `x-api-key:` value carries no space after the colon. Claude Desktop passes the argument without a shell, and a space splits the header.
 
 </details>
 
