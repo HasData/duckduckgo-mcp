@@ -39,7 +39,7 @@ The server URL is the same for every client. We run it hands-on in Claude Code a
 | :--- | :--- |
 | URL | `https://mcp.hasdata.com/api/mcp?apis=duckduckgo` |
 | Transport | HTTP, streamable |
-| Auth header | `x-api-key: your_key_here` |
+| Auth header | `x-api-key: HASDATA_API_KEY` |
 
 Clients with OAuth support can add the same URL as a connector and sign in without putting a key in a config file.
 
@@ -48,7 +48,7 @@ Clients with OAuth support can add the same URL as a connector and sign in witho
 
 ```bash
 claude mcp add --transport http duckduckgo "https://mcp.hasdata.com/api/mcp?apis=duckduckgo" \
-  --header "x-api-key: your_key_here"
+  --header "x-api-key: HASDATA_API_KEY"
 ```
 
 </details>
@@ -70,7 +70,7 @@ For the config-file route, Claude Desktop loads only local (stdio) servers, so a
         "mcp-remote",
         "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
         "--header",
-        "x-api-key:your_key_here"
+        "x-api-key:HASDATA_API_KEY"
       ]
     }
   }
@@ -91,7 +91,7 @@ The `x-api-key:` value carries no space after the colon. Claude Desktop passes t
   "mcpServers": {
     "duckduckgo": {
       "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
-      "headers": { "x-api-key": "your_key_here" }
+      "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
 }
@@ -109,7 +109,7 @@ The `x-api-key:` value carries no space after the colon. Claude Desktop passes t
   "mcpServers": {
     "duckduckgo": {
       "serverUrl": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
-      "headers": { "x-api-key": "your_key_here" }
+      "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
 }
@@ -126,7 +126,7 @@ The `x-api-key:` value carries no space after the colon. Claude Desktop passes t
     "duckduckgo": {
       "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
       "type": "streamableHttp",
-      "headers": { "x-api-key": "your_key_here" },
+      "headers": { "x-api-key": "HASDATA_API_KEY" },
       "disabled": false
     }
   }
@@ -146,7 +146,7 @@ The `x-api-key:` value carries no space after the colon. Claude Desktop passes t
     "duckduckgo": {
       "type": "http",
       "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
-      "headers": { "x-api-key": "your_key_here" }
+      "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
 }
@@ -164,7 +164,7 @@ The `x-api-key:` value carries no space after the colon. Claude Desktop passes t
 url = "https://mcp.hasdata.com/api/mcp?apis=duckduckgo"
 
 [mcp_servers.duckduckgo.headers]
-"x-api-key" = "your_key_here"
+"x-api-key" = "HASDATA_API_KEY"
 ```
 
 </details>
@@ -179,7 +179,7 @@ url = "https://mcp.hasdata.com/api/mcp?apis=duckduckgo"
   "mcpServers": {
     "duckduckgo": {
       "httpUrl": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
-      "headers": { "x-api-key": "your_key_here" }
+      "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
 }
