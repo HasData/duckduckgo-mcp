@@ -3,7 +3,7 @@
   "name": "com.hasdata/duckduckgo",
   "title": "HasData DuckDuckGo",
   "description": "DuckDuckGo search as JSON. Ranked results, ads in their own array, 37 regions.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://hasdata.com/apis/duckduckgo-serp-api",
   "repository": {
     "url": "https://github.com/HasData/duckduckgo-mcp",
@@ -20,6 +20,27 @@
           "isRequired": true,
           "isSecret": true
         }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@hasdata/duckduckgo-mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "HASDATA_API_KEY", "description": "HasData API key, created at app.hasdata.com. The free trial needs no card.", "isRequired": true, "isSecret": true }
+      ]
+    },
+    {
+      "registryType": "pypi",
+      "identifier": "hasdata-duckduckgo-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "HASDATA_API_KEY", "description": "HasData API key, created at app.hasdata.com. The free trial needs no card.", "isRequired": true, "isSecret": true }
       ]
     }
   ]
