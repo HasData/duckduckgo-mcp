@@ -32,7 +32,7 @@ https://mcp.hasdata.com/api/mcp?apis=duckduckgo
 
 ## What you need
 
-An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=duckduckgo-mcp), free to create. Nothing else. This is a remote server. There is no Python environment to manage, no browser package to add and no local process that has to stay up.
+An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=duckduckgo-mcp), free to create. Nothing else. This is a remote server, so the simplest path is a URL and a header, with no browser package to add and no local process to keep up. A stdio-only client can use the `@hasdata/duckduckgo-mcp` (npm) or `hasdata-duckduckgo-mcp` (PyPI) launcher instead.
 
 ## Quick start
 
@@ -61,26 +61,33 @@ claude mcp add --transport http duckduckgo "https://mcp.hasdata.com/api/mcp?apis
 
 Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/api/mcp?apis=duckduckgo` and sign in.
 
-For the config-file route, Claude Desktop loads only local (stdio) servers, so a remote server is reached through the `mcp-remote` bridge, which needs Node. Add this to `claude_desktop_config.json`:
+For the config-file route, Claude Desktop loads only local (stdio) servers, so it reaches a remote server through a stdio launcher. The `@hasdata/duckduckgo-mcp` package is that launcher, and it reads the key from the environment. Add this to `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
     "duckduckgo": {
       "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
-        "--header",
-        "x-api-key:HASDATA_API_KEY"
-      ]
+      "args": ["-y", "@hasdata/duckduckgo-mcp"],
+      "env": { "HASDATA_API_KEY": "YOUR_KEY" }
     }
   }
 }
 ```
 
-The `x-api-key:` value carries no space after the colon. Claude Desktop passes the argument without a shell, and a space splits the header.
+Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs without a manual install:
+
+```json
+{
+  "mcpServers": {
+    "duckduckgo": {
+      "command": "uvx",
+      "args": ["hasdata-duckduckgo-mcp"],
+      "env": { "HASDATA_API_KEY": "YOUR_KEY" }
+    }
+  }
+}
+```
 
 </details>
 
