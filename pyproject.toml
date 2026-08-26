@@ -1,6 +1,6 @@
 [project]
 name = "hasdata-duckduckgo-mcp"
-version = "1.0.0"
+version = "1.0.1"
 description = "MCP server for DuckDuckGo search through HasData's hosted API. Ranked results, ads, AI answer and 37 regions."
 readme = "README.md"
 requires-python = ">=3.10"

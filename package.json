@@ -1,16 +1,41 @@
 {
   "name": "@hasdata/duckduckgo-mcp",
   "mcpName": "com.hasdata/duckduckgo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for DuckDuckGo search through HasData's hosted API: ranked organic results, ads in their own array, the Search Assist AI answer, and 37 regions. All as structured JSON.",
   "type": "module",
-  "bin": { "hasdata-duckduckgo-mcp": "index.mjs" },
-  "files": ["index.mjs", "README.md", "LICENSE"],
-  "scripts": { "test": "node --test" },
-  "dependencies": { "mcp-remote": "^0.1.43" },
-  "engines": { "node": ">=18" },
+  "bin": {
+    "hasdata-duckduckgo-mcp": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "mcp-remote": "^0.1.43"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/HasData/duckduckgo-mcp.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HasData/duckduckgo-mcp.git"
+  },
   "homepage": "https://hasdata.com/apis/duckduckgo-serp-api",
-  "keywords": ["mcp", "duckduckgo", "duckduckgo-mcp", "ddg", "search", "serp", "model-context-protocol", "hasdata", "scraper"]
+  "keywords": [
+    "mcp",
+    "duckduckgo",
+    "duckduckgo-mcp",
+    "ddg",
+    "search",
+    "serp",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ]
 }
