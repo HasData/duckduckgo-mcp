@@ -335,7 +335,7 @@ The realistic alternative is a self-hosted server. The popular ones are Python p
 | Regions | One `region` code | 37 region codes, or country and language set separately |
 | SafeSearch | Fixed when the server starts, deliberately not callable by the agent | Per call |
 | Who fetches the page | Your machine, over `httpx`, with an optional `curl_cffi` backend and a fallback to configure | Ours |
-| Throughput | Self-throttled to 30 searches a minute | Plan concurrency, from 1 on the trial to 1,500 |
+| Throughput | Self-throttled to 30 searches a minute | Plan concurrency, from 1 on the free tier to 1,500 |
 | What you run | A Python environment, an optional extra, and container or proxy settings when it is not on localhost | A URL and a header |
 | Page content extraction | A `fetch_content` tool | Not offered |
 | Cost | Free | 10 credits a call |
