@@ -2,7 +2,7 @@
   "name": "@hasdata/duckduckgo-mcp",
   "mcpName": "com.hasdata/duckduckgo",
   "version": "1.0.1",
-  "description": "MCP server for DuckDuckGo search through HasData's hosted API: ranked organic results, ads in their own array, the Search Assist AI answer, and 37 regions. All as structured JSON.",
+  "description": "MCP server for DuckDuckGo search through HasData's hosted API: ranked organic results, ads in their own array, the Search Assist AI answer, and 37 regions. All as structured JSON. 1,000 free credits every month.",
   "type": "module",
   "bin": {
     "hasdata-duckduckgo-mcp": "index.mjs"
