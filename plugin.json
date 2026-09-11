@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hasdata-duckduckgo-mcp",
+  "version": "1.0.1",
+  "description": "DuckDuckGo MCP server for Cursor. Ranked organic results, ads in their own array and the Search Assist answer, with region and safe-search controls, as structured JSON. Remote MCP server hosted by HasData, connects over streamable HTTP with your HasData API key.",
+  "author": {
+    "name": "HasData",
+    "url": "https://hasdata.com"
+  },
+  "homepage": "https://hasdata.com/apis/duckduckgo-serp-api",
+  "repository": "https://github.com/HasData/duckduckgo-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "duckduckgo",
+    "duckduckgo-mcp",
+    "ddg",
+    "search",
+    "serp",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ]
+}
