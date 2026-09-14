@@ -231,9 +231,9 @@ Paging costs a call each time. A prompt that walks ten pages is ten calls and 10
 
 ## Tools
 
-| Tool | Credits | What it returns |
-| :--- | :--- | :--- |
-| `hasdata_duckduckgo_serp_getSearchResults` | 10 | Organic results (title, url, snippet, displayed url, position, date, sitelinks, video metadata), ads, and the Search Assist AI answer |
+| Tool | What it returns |
+| --- | --- |
+| `hasdata_duckduckgo_serp_getSearchResults` | Organic results (title, url, snippet, displayed url, position, date, sitelinks, video metadata), ads, and the Search Assist AI answer. 10 credits a call |
 
 One tool. Samples below are trimmed from real calls, and the results in them change as the web changes. Read them as shapes.
 
