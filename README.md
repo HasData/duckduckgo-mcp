@@ -231,6 +231,10 @@ Paging costs a call each time. A prompt that walks ten pages is ten calls and 10
 
 ## Tools
 
+| Tool | Credits | What it returns |
+| :--- | :--- | :--- |
+| `hasdata_duckduckgo_serp_getSearchResults` | 10 | Organic results (title, url, snippet, displayed url, position, date, sitelinks, video metadata), ads, and the Search Assist AI answer |
+
 One tool. Samples below are trimmed from real calls, and the results in them change as the web changes. Read them as shapes.
 
 The samples are the payload, not the whole response. A `tools/call` result carries one text block, and that text is itself JSON holding `url`, `status`, `text` and `json`, with the scraped data under `json`. From a raw JSON-RPC response the path is `result.content[0].text`, parsed, then `.json`. A chat client unwraps that for you and code talking to the endpoint directly does not.
