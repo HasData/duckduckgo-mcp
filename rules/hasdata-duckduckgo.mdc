@@ -1,0 +1,28 @@
+---
+description: How to pull DuckDuckGo results and the Search Assist answer through the HasData MCP server
+alwaysApply: false
+---
+
+# DuckDuckGo through HasData
+
+One tool, `hasdata_duckduckgo_serp_getSearchResults`. Nothing is strictly required, but a call needs either `q` or a `nextPageToken`. Sending neither returns 422 naming both fields, because the requirement is conditional.
+
+## Targeting
+
+`kl` is the region in DuckDuckGo's own notation, such as `us-en` or `de-de`. `cc` is the country and `setLang` the language, and `kl` takes precedence over both, so setting all three means the last two do nothing.
+
+DuckDuckGo does not personalise by account, so a result set is not shaped by anyone's history. That makes it closer to a neutral baseline than a tailored engine, which is not the same as a promise that two calls return an identical ranking.
+
+## There is no empty result
+
+A query with nothing behind it still comes back full. A nonsense string returns ten loosely related entries and nothing in the payload marks them as a miss, so code that waits for an empty array waits forever. Judge relevance yourself, and say when the results do not actually answer the query.
+
+The keys are `organicResults`, `ads`, `searchAssist` and `pagination`. Any of the middle two can be absent rather than empty, so test for the key before reading it.
+
+## Positions are per page
+
+`position` counts inside the response it came from, and page two starts at 1 again. Page size is not fixed either, and pages of ten and fifteen both turn up, so absolute rank is the number of results already collected plus `position`.
+
+Page with `nextPageToken` and pass it alone. The token carries the query and the offset, and sending a fresh `q` beside it does not error. The token wins silently, so the answer is the old query's next page while the log says you searched for something else.
+
+Each successful call spends credits from the connected account.
