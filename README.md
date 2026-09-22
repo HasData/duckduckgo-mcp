@@ -7,7 +7,7 @@ A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf
 **1,000 free credits every month, no card required**, which is 100 searches.
 
 ```
-https://mcp.hasdata.com/api/mcp?apis=duckduckgo
+https://mcp.hasdata.com/mcp?apis=duckduckgo
 ```
 
 [![Glama score](https://glama.ai/mcp/servers/HasData/duckduckgo-mcp/badges/score.svg)](https://glama.ai/mcp/servers/HasData/duckduckgo-mcp)
@@ -44,7 +44,7 @@ The server URL is the same for every client. We run it hands-on in Claude Code a
 
 | Field | Value |
 | :--- | :--- |
-| URL | `https://mcp.hasdata.com/api/mcp?apis=duckduckgo` |
+| URL | `https://mcp.hasdata.com/mcp?apis=duckduckgo` |
 | Transport | HTTP, streamable |
 | Auth header | `x-api-key: HASDATA_API_KEY` |
 
@@ -54,7 +54,7 @@ Clients with OAuth support can add the same URL as a connector and sign in witho
 <summary><b>Claude Code</b></summary>
 
 ```bash
-claude mcp add --transport http duckduckgo "https://mcp.hasdata.com/api/mcp?apis=duckduckgo" \
+claude mcp add --transport http duckduckgo "https://mcp.hasdata.com/mcp?apis=duckduckgo" \
   --header "x-api-key: HASDATA_API_KEY"
 ```
 
@@ -63,7 +63,7 @@ claude mcp add --transport http duckduckgo "https://mcp.hasdata.com/api/mcp?apis
 <details>
 <summary><b>Claude Desktop</b></summary>
 
-Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/api/mcp?apis=duckduckgo` and sign in.
+Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/mcp?apis=duckduckgo` and sign in.
 
 For the config-file route, Claude Desktop loads only local (stdio) servers, so it reaches a remote server through a stdio launcher. The `@hasdata/duckduckgo-mcp` package is that launcher, and it reads the key from the environment. Add this to `claude_desktop_config.json`:
 
@@ -104,7 +104,7 @@ Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs
 {
   "mcpServers": {
     "duckduckgo": {
-      "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
+      "url": "https://mcp.hasdata.com/mcp?apis=duckduckgo",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -122,7 +122,7 @@ Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs
 {
   "mcpServers": {
     "duckduckgo": {
-      "serverUrl": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
+      "serverUrl": "https://mcp.hasdata.com/mcp?apis=duckduckgo",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -138,7 +138,7 @@ Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs
 {
   "mcpServers": {
     "duckduckgo": {
-      "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
+      "url": "https://mcp.hasdata.com/mcp?apis=duckduckgo",
       "type": "streamableHttp",
       "headers": { "x-api-key": "HASDATA_API_KEY" },
       "disabled": false
@@ -159,7 +159,7 @@ Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs
   "servers": {
     "duckduckgo": {
       "type": "http",
-      "url": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
+      "url": "https://mcp.hasdata.com/mcp?apis=duckduckgo",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -175,7 +175,7 @@ Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs
 
 ```toml
 [mcp_servers.duckduckgo]
-url = "https://mcp.hasdata.com/api/mcp?apis=duckduckgo"
+url = "https://mcp.hasdata.com/mcp?apis=duckduckgo"
 
 [mcp_servers.duckduckgo.headers]
 "x-api-key" = "HASDATA_API_KEY"
@@ -192,7 +192,7 @@ url = "https://mcp.hasdata.com/api/mcp?apis=duckduckgo"
 {
   "mcpServers": {
     "duckduckgo": {
-      "httpUrl": "https://mcp.hasdata.com/api/mcp?apis=duckduckgo",
+      "httpUrl": "https://mcp.hasdata.com/mcp?apis=duckduckgo",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
