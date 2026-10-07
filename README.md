@@ -14,6 +14,7 @@ https://mcp.hasdata.com/mcp?apis=duckduckgo
 [![tool contract](https://github.com/HasData/duckduckgo-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/duckduckgo-mcp/actions/workflows/contract.yml)
 [![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://modelcontextprotocol.io)
 [![Regions](https://img.shields.io/badge/regions-37-10b981?style=flat-square)](#tools)
+- [Prompts and resources](#prompts-and-resources)
 [![npm](https://img.shields.io/npm/v/@hasdata/duckduckgo-mcp?style=flat-square&logo=npm&label=npm&color=cb3837)](https://www.npmjs.com/package/@hasdata/duckduckgo-mcp)
 [![PyPI](https://img.shields.io/pypi/v/hasdata-duckduckgo-mcp?style=flat-square&logo=pypi&logoColor=white&label=PyPI&color=3775a9)](https://pypi.org/project/hasdata-duckduckgo-mcp/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
@@ -284,6 +285,20 @@ Returns `organicResults`, `ads`, `searchAssist` and `pagination`. Organic entrie
   "pagination": { "nextPageToken": "eyJ1cmwiOiJodHRwczovL2xpbmtzLmR1Y2tkdWNrZ28uY29t…" }
 }
 ```
+
+## Prompts and resources
+
+The server exposes 5 resources, one per parameter whose accepted values are a fixed list. Reading one is cheaper than learning the vocabulary from a rejected call, and it costs no credits. Each URI is `hasdata://duckduckgo/<parameter>`.
+
+| Parameter | Values | What it selects |
+| --- | ---: | --- |
+| `kl` | 37 | DuckDuckGo region code in `<country>-<language>` form (e.g. `us-en`, `de-de`). Sets country and interface language at once; takes precedence over `cc`/`setLang`. Use `wt-wt` for no region. |
+| `cc` | 36 | The two-letter country code for the country to search from. Combined with `setLang` to form the DuckDuckGo region. Ignored if `kl` is set. |
+| `setLang` | 33 | The preferred result/interface language code — usually two letters (e.g. `en`, `de`), with script-tag variants for some languages (e.g. `zh-hans`, `zh-hant`). Combined with `cc` to form the DuckDuckGo region. Ignored if `kl` is set. |
+| `safeSearch` | 3 | Adult Content Filtering option. |
+| `deviceType` | 3 | Specify the device type for the search. |
+
+The list is served without an API key, so a client can read it before a user has signed up.
 
 ## Errors and failure paths
 
