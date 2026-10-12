@@ -26,3 +26,7 @@ The keys are `organicResults`, `ads`, `searchAssist` and `pagination`. Any of th
 Page with `nextPageToken` and pass it alone. The token carries the query and the offset, and sending a fresh `q` beside it does not error. The token wins silently, so the answer is the old query's next page while the log says you searched for something else.
 
 Each successful call spends credits from the connected account.
+
+## Prompts and resources
+
+The server also serves resources that spell out the accepted values of every parameter that takes a fixed list, each one at `hasdata://duckduckgo/<parameter>`. Reading one spends no credits and makes no upstream request, which beats discovering the vocabulary from a rejected call. Listing them needs no API key either, so a client can read them before the user has connected an account.
