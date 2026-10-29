@@ -2,7 +2,7 @@
 
 <!-- mcp-name: com.hasdata/duckduckgo -->
 
-A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client DuckDuckGo search results as structured JSON. Ranked organic results with positions, ads in their own array, DuckDuckGo's own AI answer, and 37 regions to target. Built for volume and for parsing, with no local browser and no fallback chain to configure.
+A hosted [DuckDuckGo MCP server](https://hasdata.com/mcp/duckduckgo?utm_source=github&utm_medium=syndication&utm_campaign=duckduckgo-mcp&utm_content=readme-intro) that gives Claude, Cursor, Windsurf and any other MCP client DuckDuckGo search results as structured JSON. Ranked organic results with positions, ads in their own array, DuckDuckGo's own AI answer, and 37 regions to target. Built for volume and for parsing, with no local browser and no fallback chain to configure.
 
 **1,000 free credits every month, no card required**, which is 100 searches.
 
@@ -324,7 +324,7 @@ The free tier is **1,000 credits every month with no card**, which is 100 search
 
 Paid plans start at **$59 a month** for 200,000 credits, which is 20,000 searches. The unit price falls with volume, from **$2.95 per 1,000 searches** on the entry plan to **$1.19** on Basic and **$0.83** across the Growth tiers. Current numbers live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=duckduckgo-mcp).
 
-Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Handle the overflow case defensively in anything unattended, because an agent that fans out will reach the ceiling before you do.
+Your plan also sets concurrency. The free tier allows 5 requests at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Handle the overflow case defensively in anything unattended, because an agent that fans out will reach the ceiling before you do.
 
 A request that comes back non-200 is not billed. A successful call that finds nothing is still a call.
 
